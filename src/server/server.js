@@ -20,6 +20,10 @@ app.post("/login", (req, res) => {
   let credentials = Buffer.from(base64Encoding, "base64").toString().split(":");
   const username = credentials[0];
   const password = credentials[1];
+  //verify if credentials are valid
+  //return user opject if valid
+  //return an error message if not valid
+  
   getUserByUsername(username).then((user) => {
     if (user && !isEmptyObject(user)) {
       isPasswordCorrect(user.key, password).then((result) => {
